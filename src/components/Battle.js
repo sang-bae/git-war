@@ -1,31 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Link } from 'react-router-dom'
-
-function PlayerPreview(props) {
-  return (
-    <div>
-      <div className="column">
-        <img
-          className="avatar"
-          src={props.avatar}
-          alt={"Avatar for " + props.username}
-        />
-        <h2 className="username">@{props.username}</h2>
-      </div>
-      <button className="reset" onClick={props.onReset.bind(null, props.id)}>
-        Reset
-      </button>
-    </div>
-  );
-}
-
-PlayerPreview.PropTypes = {
-    avatar: PropTypes.string.isRequired,
-    username: PropTypes.string.isRequired,
-    onReset: PropTypes.func.isRequired,
-    id: PropTypes.string.isRequired,
-};
+import { Link } from "react-router-dom";
+import PlayerPreview from "./PlayerPreview";
 
 class PlayerInput extends Component {
   constructor(props) {
@@ -105,17 +81,17 @@ class Battle extends Component {
       var newState = {};
       newState[id + "Name"] = username;
       newState[id + "Image"] =
-        "https://github.com/" + username + ".png?size=200"
+        "https://github.com/" + username + ".png?size=200";
       return newState;
     });
   }
   handleReset(id) {
-      this.setState(function () {
-        var newState = {};
-        newState[id + 'Name'] = '';
-        newState[id + 'Image'] = null;
-        return newState;
-      });
+    this.setState(function() {
+      var newState = {};
+      newState[id + "Name"] = "";
+      newState[id + "Image"] = null;
+      return newState;
+    });
   }
   render() {
     var match = this.props.match;
@@ -124,7 +100,7 @@ class Battle extends Component {
 
     return (
       <div>
-        <div className='row'>
+        <div className="row">
           {!playerOneName && (
             <PlayerInput
               id="playerOne"
@@ -137,9 +113,14 @@ class Battle extends Component {
             <PlayerPreview
               avatar={this.state.playerOneImage}
               username={playerOneName}
-              onReset={this.handleReset}
-              id='playerOne'
-            />
+            >
+              <button
+                className="reset"
+                onClick={this.handleReset.bind(null, "playerOne")}
+              >
+                Reset
+              </button>
+            </PlayerPreview>
           )}
 
           {!playerTwoName && (
@@ -153,22 +134,33 @@ class Battle extends Component {
             <PlayerPreview
               avatar={this.state.playerTwoImage}
               username={playerTwoName}
-              onReset={this.handleReset}
-              id='playerTwo'
-            />
+            >
+            <button
+                className="reset"
+                onClick={this.handleReset.bind(null, "playerTwo")}
+              >
+                Reset
+              </button>
+            </PlayerPreview>
           )}
         </div>
-            
-            {this.state.playerOneImage && this.state.playerTwoImage &&
-            <Link 
-            className='button' 
-            to={{
-                pathname: match.url + '/results',
-                search: '?playerOneName=' + playerOneName 
-                + '&playerTwoName=' + playerTwoName
-            }}>
-                Battle
-            </Link>}
+
+        {this.state.playerOneImage &&
+          this.state.playerTwoImage && (
+            <Link
+              className="button"
+              to={{
+                pathname: match.url + "/results",
+                search:
+                  "?playerOneName=" +
+                  playerOneName +
+                  "&playerTwoName=" +
+                  playerTwoName
+              }}
+            >
+              Battle
+            </Link>
+          )}
       </div>
     );
   }
