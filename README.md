@@ -1,5 +1,5 @@
 # Git-Battle
-Simple Web application to compare two github profiles.
+Simple Web application that lets github users battle between each other.
 
 ## Local Setup
 To run this application in a local environment, first clone the repository by
