@@ -1,9 +1,7 @@
 # Git-Battle
----
 Simple Web application to compare two github profiles.
 
 ## Local Setup
----
 To run this application in a local environment, first clone the repository by
 
 ```
