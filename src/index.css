@@ -90,6 +90,8 @@ code {
 
 .nav {
   display: flex;
+  padding: 20px 0 20px 20px;
+  margin-left: 30px;
 }
 
 .nav li {
@@ -104,6 +106,7 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .row {

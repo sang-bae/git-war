@@ -5,7 +5,7 @@ class Home extends Component {
   render() {
     return (
       <div className='home-container'>
-        <h1>Github Battle: Battle Your Friends on Github</h1>
+        <h1>gitWar: Battle Your Friends on Github</h1>
         <Link className='button' to='/battle'>
             Battle
         </Link>
