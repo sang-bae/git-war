@@ -1,4 +1,4 @@
-# Git-Battle
+# Git-Battle | https://git-war.herokuapp.com/
 Simple Web application that lets github users battle between each other.
 
 ## Local Setup
