@@ -10,6 +10,7 @@ body {
 
 .container {
   max-width: 1200px;
+  margin: 0 auto;
 }
 
 ul {
@@ -91,7 +92,8 @@ code {
 .nav {
   display: flex;
   padding: 20px 0 20px 20px;
-  margin-left: 30px;
+  /* margin-left: 30px; */
+  margin: 0 auto;
 }
 
 .nav li {
